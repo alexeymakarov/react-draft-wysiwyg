@@ -139,7 +139,6 @@ class LayoutComponent extends Component {
           dragEnter: false,
           imgSrc: data.link || data.url,
         });
-        this.fileUpload = false;
       })
       .catch(() => {
         this.setState({
@@ -150,17 +149,12 @@ class LayoutComponent extends Component {
   };
 
   fileUploadClick = event => {
-    this.fileUpload = true;
     event.stopPropagation();
   };
 
   stopPropagation = event => {
-    if (!this.fileUpload) {
       event.preventDefault();
       event.stopPropagation();
-    } else {
-      this.fileUpload = false;
-    }
   };
 
   renderAddImageModal() {
